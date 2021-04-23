@@ -9,13 +9,15 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+  //======================================================================
+  // CONFIGURE (Auth...)
+  //======================================================================
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
     //CREATE USERS
     auth.inMemoryAuthentication().withUser("myadmin").password("{noop}myadminpassword").roles("ADMIN");
     auth.inMemoryAuthentication().withUser("myuser" ).password("{noop}myuserpassword" ).roles("USER" );
-
 
   }
 
